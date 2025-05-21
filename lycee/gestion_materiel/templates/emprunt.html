@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Emprunt de matériel</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css">
+</head>
+
+<body>
+    <div class="div_titre">
+
+        <a href="{% url 'liste_materiel' %}" class="home_button">
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M21 9L14 2c-.8-1-2.7-1-3.5 0l-7 7v15h7v-6c0-1.1.9-2 2-2s2 .9 2 2v6h7V9zM11 3l-6 6v12h3v-4c0-2.2 1.8-4 4-4s4 1.8 4 4v4h3v-11l-5.4-5.4c-.4-.4-.9-.4-1.3 0z"
+                    fill="white" />
+            </svg>
+        </a>
+
+        <h1>Emprunt {{ materiel.nom }}</h1>
+    </div>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Valider</button>
+    </form>
+</body>
+
+</html>
